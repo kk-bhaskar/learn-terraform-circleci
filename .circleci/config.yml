@@ -1,9 +1,5 @@
 version: 2
 
-orbs:
-  aws-cli: circleci/aws-cli@2.0
-  aws-s3: circleci/aws-s3@1.0.9
-
 jobs:
   aws-cli-cred-setup:
     executor: aws-cli/default

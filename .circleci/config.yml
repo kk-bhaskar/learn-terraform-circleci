@@ -1,14 +1,6 @@
 version: 2
 
 jobs:
-  aws-cli-cred-setup:
-    executor: aws-cli/default
-    steps:
-      - aws-cli/setup:
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_KEY 
-          aws-region: AWS_REGION
-
   plan-apply:
     working_directory: /tmp/project
     docker:
@@ -69,7 +61,6 @@ workflows:
   version: 2
   plan_approve_apply:
     jobs:
-      - aws-cli-cred-setup
       - plan-apply
       - hold-apply:
           type: approval
